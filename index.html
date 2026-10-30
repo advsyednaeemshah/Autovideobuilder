@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AutoVideoBuilder Studio V2 — Turn Scripts into Viral 1080p Videos in Minutes</title>
+  <meta name="description" content="AutoVideoBuilder Studio V2 is the ultimate automated AI video software for Windows PC. Turn scripts or voiceovers into complete 1080p videos with 74+ voices (Urdu, Hindi, English), auto subtitles, and sound effects." />
+  <meta name="keywords" content="AutoVideoBuilder, AI video generator, faceless youtube channel, urdu tts, hindi tts, video automation, cashcow channel, automatic subtitles" />
+  
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="AutoVideoBuilder Studio V2 — Automated 1080p Video Creation" />
+  <meta property="og:description" content="Generate complete 1080p faceless videos in minutes. 74+ ultra-realistic voices (Urdu, Hindi, English), smart stock visuals, synchronized subtitles & sound effects." />
+  <meta property="og:image" content="assets/images/demo-poster.jpg" />
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              purple: '#8B5CF6',
+              cyan: '#06B6D4',
+              green: '#10B981',
+              dark: '#090A0F',
+              surface: '#0F121F',
+              card: '#161A2C'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-[#090A0F] text-gray-100 antialiased selection:bg-purple-600 selection:text-white">
+
+  <!-- Background Glowing Orbs -->
+  <div class="glow-bg glow-purple w-[500px] h-[500px] -top-32 -left-32"></div>
+  <div class="glow-bg glow-cyan w-[600px] h-[600px] top-[30%] -right-40"></div>
+  <div class="glow-bg glow-purple w-[500px] h-[500px] top-[70%] -left-20"></div>
+
+  <!-- =========================================================================
+       NAVIGATION BAR
+  ========================================================================= -->
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-[#090A0F]/80 border-b border-white/[0.08]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 to-cyan-500 p-0.5 shadow-lg shadow-purple-500/25 group-hover:scale-105 transition-transform">
+          <div class="w-full h-full bg-[#090A0F] rounded-[10px] flex items-center justify-center">
+            <i data-lucide="video" class="w-5 h-5 text-purple-400"></i>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-lg font-bold tracking-tight text-white flex items-center gap-2">
+            AutoVideoBuilder
+            <span class="text-xs px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 font-semibold border border-purple-500/30">
+              v<span data-config="version">2.1.0</span>
+            </span>
+          </span>
+          <span class="text-[10px] text-gray-400 uppercase tracking-wider font-medium">Studio V2 AI Suite</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+        <a href="#features" class="hover:text-purple-400 transition-colors">Features</a>
+        <a href="#demo" class="hover:text-purple-400 transition-colors">Demo Video</a>
+        <a href="#voices" class="hover:text-purple-400 transition-colors">74+ Voices</a>
+        <a href="#how-it-works" class="hover:text-purple-400 transition-colors">How It Works</a>
+        <a href="#pricing" class="hover:text-purple-400 transition-colors">Pricing (Rs. 3000)</a>
+        <a href="#faq" class="hover:text-purple-400 transition-colors">FAQ</a>
+      </nav>
+
+      <!-- Right CTAs -->
+      <div class="hidden sm:flex items-center gap-3">
+        <a data-href="whatsapp-support" class="px-4 py-2 text-xs font-semibold text-gray-300 hover:text-white bg-white/5 hover:bg-white/10 rounded-lg border border-white/10 transition-all flex items-center gap-2">
+          <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
+          WhatsApp
+        </a>
+        <a data-href="download" class="btn-shimmer px-5 py-2.5 text-xs font-bold text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 rounded-lg shadow-lg shadow-purple-600/30 transition-all flex items-center gap-2">
+          <i data-lucide="download" class="w-4 h-4"></i>
+          Download for Windows
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg bg-white/5 border border-white/10 text-gray-300 hover:text-white">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden md:hidden px-4 pt-3 pb-6 bg-[#0E101A] border-b border-white/10 space-y-3">
+      <a href="#features" class="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-white/5">Features</a>
+      <a href="#demo" class="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-white/5">Demo Video</a>
+      <a href="#voices" class="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-white/5">74+ Voices</a>
+      <a href="#how-it-works" class="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-white/5">How It Works</a>
+      <a href="#pricing" class="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-white/5">Pricing (Rs. 3,000)</a>
+      <a href="#faq" class="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-white/5">FAQ</a>
+      <div class="pt-3 flex flex-col gap-2">
+        <a data-href="download" class="w-full text-center py-2.5 text-xs font-bold text-white bg-purple-600 hover:bg-purple-500 rounded-lg shadow-lg flex items-center justify-center gap-2">
+          <i data-lucide="download" class="w-4 h-4"></i>
+          Download for Windows (v<span data-config="version">2.1.0</span>)
+        </a>
+        <a data-href="whatsapp-support" class="w-full text-center py-2.5 text-xs font-semibold text-gray-200 bg-white/10 hover:bg-white/15 rounded-lg flex items-center justify-center gap-2">
+          <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
+          Chat on WhatsApp (<span data-config="whatsAppDisplay">+92 317 0036949</span>)
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       HERO SECTION
+  ========================================================================= -->
+  <section class="relative pt-12 pb-20 md:pt-20 md:pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
+    
+    <!-- Top Announcement Pill -->
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/25 text-xs font-medium text-purple-300 mb-8 animate-fade-in shadow-inner">
+      <span class="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+      <span>Latest Release <b>v<span data-config="version">2.1.0</span></b> • Includes 24-Hour Free Trial (6 Full Projects)</span>
+    </div>
+
+    <!-- Main Title -->
+    <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight max-w-5xl mx-auto leading-[1.15] mb-6">
+      Turn Simple Scripts into <br />
+      <span class="gradient-text">Viral 1080p Videos in Minutes</span>
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="text-base sm:text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed mb-8">
+      The all-in-one AI desktop studio built for YouTubers, Faceless Cashcow Channels &amp; Content Creators. Automated stock visuals, <b>74+ realistic neural voices (Urdu, Hindi, English)</b>, animated karaoke subtitles &amp; cinematic sound effects — all in one click.
+    </p>
+
+    <!-- CRITICAL COMPATIBILITY NOTICE BANNER (Laptop/PC Only) -->
+    <div class="max-w-2xl mx-auto mb-10 px-4 py-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-200 text-xs sm:text-sm flex items-center justify-center gap-3">
+      <i data-lucide="laptop" class="w-5 h-5 text-amber-400 shrink-0"></i>
+      <span>
+        <b>Windows PC / Laptop Required:</b> This software runs on Windows 10 &amp; 11 (64-bit). It is <span class="underline font-bold">NOT supported on mobile phones</span> (Android / iOS).
+      </span>
+    </div>
+
+    <!-- Primary Action Buttons -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+      
+      <!-- Big Download CTA -->
+      <a data-href="download" class="btn-shimmer w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-600 hover:from-purple-500 hover:to-cyan-500 text-white font-bold text-base shadow-2xl shadow-purple-600/40 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3 group">
+        <i data-lucide="download" class="w-6 h-6 group-hover:-translate-y-0.5 transition-transform"></i>
+        <div class="text-left">
+          <div class="text-sm font-extrabold leading-none">Download for Windows</div>
+          <div class="text-[11px] text-purple-200 font-normal mt-0.5">Version <span data-config="version">2.1.0</span> • <span data-config="fileSize">471 MB</span> (ZIP)</div>
+        </div>
+      </a>
+
+      <!-- Watch Demo Button -->
+      <a href="#demo" class="w-full sm:w-auto px-7 py-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white font-semibold text-sm transition-all flex items-center justify-center gap-2">
+        <i data-lucide="play-circle" class="w-5 h-5 text-purple-400"></i>
+        Watch Live Demo
+      </a>
+
+      <!-- WhatsApp Buy Button -->
+      <a data-href="whatsapp-buy" class="w-full sm:w-auto px-7 py-4 rounded-xl bg-emerald-600/20 hover:bg-emerald-600/30 border border-emerald-500/40 text-emerald-300 font-semibold text-sm transition-all flex items-center justify-center gap-2">
+        <i data-lucide="shield-check" class="w-5 h-5 text-emerald-400"></i>
+        Buy Full License (Rs. <span data-config="pricePKR">3,000</span>)
+      </a>
+
+    </div>
+
+    <!-- Trust Badges -->
+    <div class="flex flex-wrap items-center justify-center gap-6 text-xs text-gray-400 font-medium pt-2">
+      <div class="flex items-center gap-1.5">
+        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
+        <span>24-Hour Free Trial (6 Projects)</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
+        <span>No Credit Card Required</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
+        <span>100% YouTube Monetizable</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
+        <span>No Monthly Fees</span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- =========================================================================
+       DEMO VIDEO SHOWCASE SECTION
+  ========================================================================= -->
+  <section id="demo" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+    <div class="text-center mb-10">
+      <span class="text-xs uppercase tracking-widest text-purple-400 font-bold">Watch Studio V2 In Action</span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Complete Automated Video Workflow</h2>
+      <p class="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto mt-2">
+        Watch how a simple text script or voiceover audio transforms into a studio-grade 1080p video with subtitles, background music, and cinematic transitions.
+      </p>
+    </div>
+
+    <!-- Video Container -->
+    <div class="relative rounded-2xl p-2 sm:p-4 bg-gradient-to-b from-white/10 to-white/5 border border-white/10 shadow-2xl shadow-purple-900/20">
+      
+      <!-- Video Player -->
+      <div id="demo-video-container" class="rounded-xl overflow-hidden bg-black aspect-video relative group">
+        <video 
+          controls 
+          preload="metadata" 
+          poster="assets/images/demo-poster.jpg" 
+          class="w-full h-full object-cover">
+          <source src="assets/videos/demo-promo.mp4" type="video/mp4" />
+          Your browser does not support HTML5 video.
+        </video>
+      </div>
+
+      <!-- Feature Tags Beneath Video -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-4">
+        <div class="p-3 rounded-lg bg-white/[0.03] border border-white/5 text-center">
+          <div class="text-xs text-gray-400">Rendering Engine</div>
+          <div class="text-sm font-bold text-white mt-0.5">1080p Full HD Offline</div>
+        </div>
+        <div class="p-3 rounded-lg bg-white/[0.03] border border-white/5 text-center">
+          <div class="text-xs text-gray-400">Voice Synthesis</div>
+          <div class="text-sm font-bold text-purple-300 mt-0.5">74+ Neural Voices</div>
+        </div>
+        <div class="p-3 rounded-lg bg-white/[0.03] border border-white/5 text-center">
+          <div class="text-xs text-gray-400">Subtitle Sync</div>
+          <div class="text-sm font-bold text-cyan-300 mt-0.5">Word-Level Karaoke</div>
+        </div>
+        <div class="p-3 rounded-lg bg-white/[0.03] border border-white/5 text-center">
+          <div class="text-xs text-gray-400">Aspect Ratios</div>
+          <div class="text-sm font-bold text-emerald-300 mt-0.5">16:9 YouTube &amp; 9:16 Shorts</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       CORE FEATURES GRID
+  ========================================================================= -->
+  <section id="features" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <span class="text-xs uppercase tracking-widest text-cyan-400 font-bold">Unrivaled Power &amp; Speed</span>
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-2">Everything You Need to Dominate YouTube</h2>
+      <p class="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto mt-3">
+        Built from the ground up to solve the biggest headaches of faceless content creation. No expensive monthly subscriptions, no complex editors.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      
+      <!-- Feature 1: 74+ Neural Voices -->
+      <div class="glass-card p-6 sm:p-8 rounded-2xl relative overflow-hidden group">
+        <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 mb-6 group-hover:scale-110 transition-transform">
+          <i data-lucide="mic" class="w-6 h-6"></i>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-3">74+ Ultra-Realistic AI Voices</h3>
+        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+          Includes fluent native Urdu voices (Uzma, Asad, Gul, Salman), Hindi voices (Swara, Madhur), Arabic, English, and 40+ languages. Zero robotic sound.
+        </p>
+        <div class="text-xs font-semibold text-purple-400 flex items-center gap-1">
+          <span>Native Nastaliq &amp; Devanagari ready</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </div>
+      </div>
+
+      <!-- Feature 2: Smart Stock Visuals -->
+      <div class="glass-card p-6 sm:p-8 rounded-2xl relative overflow-hidden group">
+        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-6 group-hover:scale-110 transition-transform">
+          <i data-lucide="film" class="w-6 h-6"></i>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-3">Smart Scene Intelligence</h3>
+        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+          The engine analyzes your script meaning, extracts visual concepts, and automatically downloads royalty-free 1080p clips and photos from Pexels &amp; Pixabay.
+        </p>
+        <div class="text-xs font-semibold text-cyan-400 flex items-center gap-1">
+          <span>100% Commercial &amp; Monetizable</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </div>
+      </div>
+
+      <!-- Feature 3: Auto Karaoke Subtitles -->
+      <div class="glass-card p-6 sm:p-8 rounded-2xl relative overflow-hidden group">
+        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-6 group-hover:scale-110 transition-transform">
+          <i data-lucide="type" class="w-6 h-6"></i>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-3">Word-Sync Karaoke Subtitles</h3>
+        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+          High-retention subtitles burned directly into your video. Built-in Noto Nastaliq Urdu, Noto Sans Devanagari, and Montserrat fonts with customizable colors.
+        </p>
+        <div class="text-xs font-semibold text-emerald-400 flex items-center gap-1">
+          <span>Zero manual subtitle editing</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </div>
+      </div>
+
+      <!-- Feature 4: Audio Mixing & SFX -->
+      <div class="glass-card p-6 sm:p-8 rounded-2xl relative overflow-hidden group">
+        <div class="w-12 h-12 rounded-xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center text-pink-400 mb-6 group-hover:scale-110 transition-transform">
+          <i data-lucide="volume-2" class="w-6 h-6"></i>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-3">Dynamic SFX &amp; Auto-Ducking</h3>
+        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+          Automatically places subtle scene transition whooshes, riser impacts, and applies intelligent auto-ducking to lower background music volume when narration speaks.
+        </p>
+        <div class="text-xs font-semibold text-pink-400 flex items-center gap-1">
+          <span>Studio-mastered audio mix</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </div>
+      </div>
+
+      <!-- Feature 5: 100% Offline Rendering -->
+      <div class="glass-card p-6 sm:p-8 rounded-2xl relative overflow-hidden group">
+        <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform">
+          <i data-lucide="cpu" class="w-6 h-6"></i>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-3">Local Offline Video Engine</h3>
+        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+          Powered by local Whisper AI and GPU/CPU FFmpeg hardware acceleration. No waiting in cloud server queues, no usage credits, and no watermarks ever.
+        </p>
+        <div class="text-xs font-semibold text-amber-400 flex items-center gap-1">
+          <span>Unlimited video generation</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </div>
+      </div>
+
+      <!-- Feature 6: Cryptographic Auto-Updater -->
+      <div class="glass-card p-6 sm:p-8 rounded-2xl relative overflow-hidden group">
+        <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 mb-6 group-hover:scale-110 transition-transform">
+          <i data-lucide="refresh-cw" class="w-6 h-6"></i>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-3">Lifetime 1-Click Updates</h3>
+        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+          When new features, voices, or enhancements are published, AutoVideoBuilder notifies you inside the app and self-updates cleanly without losing your project files.
+        </p>
+        <div class="text-xs font-semibold text-indigo-400 flex items-center gap-1">
+          <span>Always running the latest version</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       74+ VOICES SHOWCASE SECTION
+  ========================================================================= -->
+  <section id="voices" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/5">
+    <div class="text-center mb-14">
+      <span class="text-xs uppercase tracking-widest text-purple-400 font-bold">World-Class Speech Synthesis</span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">74+ Ultra-Realistic Neural Voices</h2>
+      <p class="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto mt-2">
+        Whether you create Urdu historical documentaries, Hindi motivational reels, English cashcow videos, or Arabic recitations, we have the perfect voice.
+      </p>
+    </div>
+
+    <!-- Voice Categories -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      
+      <!-- Urdu Voices -->
+      <div class="glass-card p-6 rounded-xl border border-purple-500/20">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="text-xl">🇵🇰</span>
+          <h4 class="font-bold text-white">Urdu Voices (4)</h4>
+        </div>
+        <ul class="space-y-2 text-xs text-gray-300">
+          <li class="flex items-center justify-between p-2 rounded bg-white/[0.02]">
+            <span>Uzma (Female)</span>
+            <span class="text-purple-400 font-mono">ur-PK-Uzma</span>
+          </li>
+          <li class="flex items-center justify-between p-2 rounded bg-white/[0.02]">
+            <span>Asad (Male)</span>
+            <span class="text-purple-400 font-mono">ur-PK-Asad</span>
+          </li>
+          <li class="flex items-center justify-between p-2 rounded bg-white/[0.02]">
+            <span>Gul (Female)</span>
+            <span class="text-purple-400 font-mono">ur-IN-Gul</span>
+          </li>
+          <li class="flex items-center justify-between p-2 rounded bg-white/[0.02]">
+            <span>Salman (Male)</span>
+            <span class="text-purple-400 font-mono">ur-IN-Salman</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Hindi Voices -->
+      <div class="glass-card p-6 rounded-xl border border-cyan-500/20">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="text-xl">🇮🇳</span>
+          <h4 class="font-bold text-white">Hindi Voices (2)</h4>
+        </div>
+        <ul class="space-y-2 text-xs text-gray-300">
+          <li class="flex items-center justify-between p-2 rounded bg-white/[0.02]">
+            <span>Swara (Female)</span>
+            <span class="text-cyan-400 font-mono">hi-IN-Swara</span>
+          </li>
+          <li class="flex items-center justify-between p-2 rounded bg-white/[0.02]">
+            <span>Madhur (Male)</span>
+            <span class="text-cyan-400 font-mono">hi-IN-Madhur</span>
+          </li>
+        </ul>
+        <div class="mt-4 p-2 rounded bg-cyan-500/10 text-[11px] text-cyan-200">
+          ✨ Perfect for Hindi stories, facts &amp; YouTube shorts.
+        </div>
+      </div>
+
+      <!-- English Voices -->
+      <div class="glass-card p-6 rounded-xl border border-indigo-500/20">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="text-xl">🇺🇸 🇬🇧</span>
+          <h4 class="font-bold text-white">English Voices (24)</h4>
+        </div>
+        <ul class="space-y-2 text-xs text-gray-300">
+          <li class="flex items-center justify-between p-2 rounded bg-white/[0.02]">
+            <span>Jenny (US Female)</span>
+            <span class="text-indigo-400 font-mono">en-US</span>
+          </li>
+          <li class="flex items-center justify-between p-2 rounded bg-white/[0.02]">
+            <span>Guy (US Male)</span>
+            <span class="text-indigo-400 font-mono">en-US</span>
+          </li>
+          <li class="flex items-center justify-between p-2 rounded bg-white/[0.02]">
+            <span>Sonia (UK Female)</span>
+            <span class="text-indigo-400 font-mono">en-GB</span>
+          </li>
+          <li class="flex items-center justify-between p-2 rounded bg-white/[0.02]">
+            <span>Ryan (UK Male)</span>
+            <span class="text-indigo-400 font-mono">en-GB</span>
+          </li>
+        </ul>
+        <div class="mt-3 text-[11px] text-gray-400">+20 more US, UK, Australian, Canadian &amp; Indian English voices.</div>
+      </div>
+
+      <!-- Arabic & International -->
+      <div class="glass-card p-6 rounded-xl border border-emerald-500/20">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="text-xl">🌍</span>
+          <h4 class="font-bold text-white">40+ International</h4>
+        </div>
+        <ul class="space-y-2 text-xs text-gray-300">
+          <li class="flex items-center justify-between p-2 rounded bg-white/[0.02]">
+            <span>Arabic (Zariyah, Hamed)</span>
+            <span class="text-emerald-400 font-mono">ar-SA</span>
+          </li>
+          <li class="flex items-center justify-between p-2 rounded bg-white/[0.02]">
+            <span>Spanish (Elvira, Alvaro)</span>
+            <span class="text-emerald-400 font-mono">es-ES</span>
+          </li>
+          <li class="flex items-center justify-between p-2 rounded bg-white/[0.02]">
+            <span>French, German, Russian</span>
+            <span class="text-emerald-400 font-mono">Multi</span>
+          </li>
+          <li class="flex items-center justify-between p-2 rounded bg-white/[0.02]">
+            <span>Turkish, Bengali, Tamil</span>
+            <span class="text-emerald-400 font-mono">Asian</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       HOW IT WORKS (3 SIMPLE STEPS)
+  ========================================================================= -->
+  <section id="how-it-works" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <span class="text-xs uppercase tracking-widest text-emerald-400 font-bold">Fast &amp; Simple</span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Create Viral Videos in 3 Simple Steps</h2>
+      <p class="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto mt-2">
+        You do not need video editing skills. The software handles scripting, voiceover, timing, animations, and exporting.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+      
+      <!-- Step 1 -->
+      <div class="glass-card p-8 rounded-2xl relative">
+        <div class="w-10 h-10 rounded-full bg-purple-600/30 border border-purple-500/40 text-purple-300 font-black flex items-center justify-center mb-6">
+          1
+        </div>
+        <h3 class="text-xl font-bold text-white mb-2">Input Your Script or Audio</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Type or paste your text in Urdu, Hindi, or English. Or upload an existing audio voiceover file (MP3/WAV) if you have one.
+        </p>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="glass-card p-8 rounded-2xl relative">
+        <div class="w-10 h-10 rounded-full bg-cyan-600/30 border border-cyan-500/40 text-cyan-300 font-black flex items-center justify-center mb-6">
+          2
+        </div>
+        <h3 class="text-xl font-bold text-white mb-2">Select Voice &amp; Format</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Pick your preferred voice, subtitle style, and choose <b>16:9 Landscape</b> (for YouTube) or <b>9:16 Vertical</b> (for Shorts/TikTok/Reels).
+        </p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="glass-card p-8 rounded-2xl relative">
+        <div class="w-10 h-10 rounded-full bg-emerald-600/30 border border-emerald-500/40 text-emerald-300 font-black flex items-center justify-center mb-6">
+          3
+        </div>
+        <h3 class="text-xl font-bold text-white mb-2">Click Generate &amp; Export</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Click the Generate button. Within minutes, your complete 1080p high-bitrate video is saved to your PC, ready to upload and monetize!
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       PRICING & LIFETIME ACCESS
+  ========================================================================= -->
+  <section id="pricing" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+    <div class="text-center mb-14">
+      <span class="text-xs uppercase tracking-widest text-emerald-400 font-bold">Unbeatable Student Deal</span>
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-2">One-Time Fee • Lifetime Ownership</h2>
+      <p class="text-gray-400 text-sm sm:text-base max-w-xl mx-auto mt-2">
+        Say goodbye to paying $30 every single month for online tools. Pay once, own it forever with free lifetime updates.
+      </p>
+    </div>
+
+    <!-- Pricing Card -->
+    <div class="glass-card rounded-3xl p-8 sm:p-12 border-2 border-purple-500/40 shadow-2xl shadow-purple-900/40 relative overflow-hidden">
+      
+      <!-- Top Badge -->
+      <div class="absolute top-0 right-0 bg-gradient-to-l from-emerald-500 to-teal-500 text-white text-xs font-black px-6 py-1.5 rounded-bl-2xl uppercase tracking-wider shadow-md">
+        <span data-config="discountPercent">80% OFF</span> Special Offer
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        
+        <!-- Left: Price details -->
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-purple-400">Lifetime Full License</span>
+          <div class="flex items-baseline gap-3 mt-2">
+            <span class="text-4xl sm:text-6xl font-black text-white">Rs. <span data-config="pricePKR">3,000</span></span>
+            <span class="text-gray-500 text-lg sm:text-xl line-through">Rs. <span data-config="originalPricePKR">15,000</span></span>
+          </div>
+          <p class="text-emerald-400 text-sm font-semibold mt-1">One-time payment • No monthly recurring fees</p>
+          <p class="text-gray-400 text-xs mt-3 leading-relaxed">
+            Full commercial license for unlimited videos. Use for personal YouTube channels, client work, or cashcow automation.
+          </p>
+
+          <!-- WhatsApp Buy CTA -->
+          <div class="mt-8 space-y-3">
+            <a data-href="whatsapp-buy" class="btn-shimmer w-full py-4 px-6 rounded-xl bg-gradient-to-r from-emerald-600 via-teal-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white font-extrabold text-sm sm:text-base text-center shadow-xl shadow-emerald-600/30 transition-all flex items-center justify-center gap-2 group">
+              <i data-lucide="message-circle" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+              Buy Lifetime License via WhatsApp
+            </a>
+            <div class="text-center text-xs text-gray-400 flex items-center justify-center gap-2">
+              <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i>
+              Instant Activation via EasyPaisa or MCB Bank Transfer
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: What's included checklist -->
+        <div class="border-t md:border-t-0 md:border-l border-white/10 pt-6 md:pt-0 md:pl-10 space-y-3.5 text-sm text-gray-300">
+          <div class="font-bold text-white text-base mb-2">Everything Included in Your License:</div>
+          
+          <div class="flex items-start gap-2.5">
+            <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+            <span><b>Unlimited 1080p Video Generation</b> (Zero limits)</span>
+          </div>
+          <div class="flex items-start gap-2.5">
+            <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+            <span><b>All 74+ Neural Voices</b> (Urdu, Hindi, English, Arabic)</span>
+          </div>
+          <div class="flex items-start gap-2.5">
+            <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+            <span><b>Auto Stock Visuals</b> (Pexels &amp; Pixabay automated search)</span>
+          </div>
+          <div class="flex items-start gap-2.5">
+            <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+            <span><b>Auto Word-Level Karaoke Subtitles</b> (Nastaliq &amp; Devanagari)</span>
+          </div>
+          <div class="flex items-start gap-2.5">
+            <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+            <span><b>Sound Effects &amp; Auto-Ducking BGM</b></span>
+          </div>
+          <div class="flex items-start gap-2.5">
+            <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+            <span><b>100% Commercial Rights</b> (Monetize on YouTube)</span>
+          </div>
+          <div class="flex items-start gap-2.5">
+            <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+            <span><b>Free Lifetime Future Updates</b> (In-app auto updater)</span>
+          </div>
+          <div class="flex items-start gap-2.5">
+            <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+            <span><b>Direct WhatsApp VIP Support</b> with Syed Naeem Shah</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Payment Methods Box -->
+      <div class="mt-8 pt-6 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+        <div class="p-3 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-between">
+          <div>
+            <div class="text-gray-400">EasyPaisa Account:</div>
+            <div class="font-bold text-white text-sm mt-0.5"><span data-config="easyPaisaNumber">0317 0036949</span></div>
+            <div class="text-[10px] text-gray-500">Title: <span data-config="accountTitle">SYED NAEEM SHAH</span></div>
+          </div>
+          <button data-copy="03170036949" class="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white" title="Copy EasyPaisa Number">
+            <i data-lucide="copy" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <div class="p-3 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-between">
+          <div>
+            <div class="text-gray-400">MCB Bank Account:</div>
+            <div class="font-bold text-white text-sm mt-0.5"><span data-config="bankAccountNumber">1340210651001157</span></div>
+            <div class="text-[10px] text-gray-400 font-mono mt-0.5">IBAN: <span data-config="bankIBAN">PK73MUCB1340210651001157</span></div>
+            <div class="text-[10px] text-gray-500">Title: <span data-config="accountTitle">SYED NAEEM SHAH</span></div>
+          </div>
+          <div class="flex flex-col gap-1 shrink-0 ml-2">
+            <button data-copy="1340210651001157" class="px-2 py-1 rounded bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white text-[10px] flex items-center gap-1" title="Copy Account Number">
+              <i data-lucide="copy" class="w-3 h-3"></i>
+              <span>Acc</span>
+            </button>
+            <button data-copy="PK73MUCB1340210651001157" class="px-2 py-1 rounded bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white text-[10px] flex items-center gap-1" title="Copy IBAN">
+              <i data-lucide="copy" class="w-3 h-3"></i>
+              <span>IBAN</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="p-3 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-between">
+          <div>
+            <div class="text-gray-400">How to Activate:</div>
+            <div class="font-bold text-emerald-400 text-xs mt-0.5">Send screenshot to WhatsApp</div>
+            <div class="text-[10px] text-gray-400">Key issued within 5 minutes</div>
+          </div>
+          <a data-href="whatsapp-buy" class="p-2 rounded-lg bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500/30">
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SYSTEM REQUIREMENTS & PLATFORM WARNING
+  ========================================================================= -->
+  <section class="py-12 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+    <div class="p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-red-500/10 via-amber-500/10 to-transparent border border-amber-500/20">
+      <div class="flex items-start gap-4">
+        <div class="p-3 rounded-xl bg-amber-500/20 text-amber-300 shrink-0">
+          <i data-lucide="alert-triangle" class="w-6 h-6"></i>
+        </div>
+        <div class="space-y-2">
+          <h3 class="text-lg font-bold text-white">System Compatibility Notice (Please Read)</h3>
+          <p class="text-gray-300 text-xs sm:text-sm leading-relaxed">
+            <b>AutoVideoBuilder is a powerful native desktop application built for Windows computers.</b> It requires local GPU/CPU hardware acceleration to transcribe speech, assemble video timelines, and render high-bitrate 1080p MP4 files.
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs">
+            <div class="p-2.5 rounded-lg bg-black/40 border border-white/5">
+              <span class="text-gray-400">Supported Devices:</span>
+              <div class="font-bold text-emerald-400 mt-0.5">✅ Windows 10 &amp; 11 (64-Bit) PC / Laptop</div>
+            </div>
+            <div class="p-2.5 rounded-lg bg-black/40 border border-white/5">
+              <span class="text-gray-400">Unsupported Devices:</span>
+              <div class="font-bold text-red-400 mt-0.5">❌ Android, iPhone, iPad, macOS</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       FREQUENTLY ASKED QUESTIONS (FAQ)
+  ========================================================================= -->
+  <section id="faq" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+    <div class="text-center mb-14">
+      <span class="text-xs uppercase tracking-widest text-purple-400 font-bold">Got Questions?</span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Frequently Asked Questions</h2>
+      <p class="text-gray-400 text-sm max-w-xl mx-auto mt-2">Everything you need to know about the software, licensing, and installation.</p>
+    </div>
+
+    <div class="space-y-4">
+      
+      <!-- FAQ 1 -->
+      <div class="glass-card rounded-xl overflow-hidden faq-item">
+        <button class="w-full p-5 text-left font-bold text-white flex items-center justify-between faq-trigger hover:text-purple-300 transition-colors">
+          <span>Can I try AutoVideoBuilder before purchasing?</span>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform faq-icon"></i>
+        </button>
+        <div class="p-5 pt-0 text-sm text-gray-400 leading-relaxed faq-content hidden border-t border-white/5">
+          Yes, absolutely! When you download and run AutoVideoBuilder for the first time, you automatically get a <b>24-Hour Free Trial with 6 Full Video Projects</b>. No credit card or registration is required. You can test all 74 voices, stock visual search, and full 1080p exports right away.
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="glass-card rounded-xl overflow-hidden faq-item">
+        <button class="w-full p-5 text-left font-bold text-white flex items-center justify-between faq-trigger hover:text-purple-300 transition-colors">
+          <span>How do I purchase and activate the Lifetime License?</span>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform faq-icon"></i>
+        </button>
+        <div class="p-5 pt-0 text-sm text-gray-400 leading-relaxed faq-content hidden border-t border-white/5">
+          Simply transfer the one-time fee of <b>Rs. 3,000 PKR</b> via <b>EasyPaisa</b> (to <code>0317 0036949</code>) or via <b>Bank Transfer</b> to <b>MCB Bank</b> (Account: <code>1340210651001157</code> / IBAN: <code>PK73MUCB1340210651001157</code>, Title: <b>SYED NAEEM SHAH</b>). Send your payment screenshot along with the <b>Machine Code</b> displayed on your AutoVideoBuilder launcher window to our WhatsApp. Your license key will be issued immediately!
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="glass-card rounded-xl overflow-hidden faq-item">
+        <button class="w-full p-5 text-left font-bold text-white flex items-center justify-between faq-trigger hover:text-purple-300 transition-colors">
+          <span>Can I monetize the videos on YouTube, Facebook, and TikTok?</span>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform faq-icon"></i>
+        </button>
+        <div class="p-5 pt-0 text-sm text-gray-400 leading-relaxed faq-content hidden border-t border-white/5">
+          Yes, 100%! All visual clips downloaded by the engine come from royalty-free libraries (Pexels and Pixabay) licensed for commercial usage. You own full commercial rights to all generated videos and can freely monetize them on YouTube Cashcow channels, Facebook, Instagram, or client projects.
+        </div>
+      </div>
+
+      <!-- FAQ 4 -->
+      <div class="glass-card rounded-xl overflow-hidden faq-item">
+        <button class="w-full p-5 text-left font-bold text-white flex items-center justify-between faq-trigger hover:text-purple-300 transition-colors">
+          <span>Are Urdu and Hindi voiceovers working properly?</span>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform faq-icon"></i>
+        </button>
+        <div class="p-5 pt-0 text-sm text-gray-400 leading-relaxed faq-content hidden border-t border-white/5">
+          Yes! In version 2.1.0, all 4 Urdu voices (Uzma, Asad, Gul, Salman) and Hindi voices (Swara, Madhur) are 100% verified and operational. The app also includes native Noto Nastaliq Urdu and Noto Sans Devanagari fonts so your subtitles display beautifully and accurately without broken text.
+        </div>
+      </div>
+
+      <!-- FAQ 5 -->
+      <div class="glass-card rounded-xl overflow-hidden faq-item">
+        <button class="w-full p-5 text-left font-bold text-white flex items-center justify-between faq-trigger hover:text-purple-300 transition-colors">
+          <span>How do updates work in the future?</span>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform faq-icon"></i>
+        </button>
+        <div class="p-5 pt-0 text-sm text-gray-400 leading-relaxed faq-content hidden border-t border-white/5">
+          AutoVideoBuilder has a built-in cryptographic auto-updater. When a new version is pushed, a popup automatically appears asking you to install the update. Clicking "Download &amp; Install Update" self-upgrades the software cleanly without losing your settings or files.
+        </div>
+      </div>
+
+      <!-- FAQ 6 -->
+      <div class="glass-card rounded-xl overflow-hidden faq-item">
+        <button class="w-full p-5 text-left font-bold text-white flex items-center justify-between faq-trigger hover:text-purple-300 transition-colors">
+          <span>Can I run this on mobile phones or Mac?</span>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform faq-icon"></i>
+        </button>
+        <div class="p-5 pt-0 text-sm text-gray-400 leading-relaxed faq-content hidden border-t border-white/5">
+          No. AutoVideoBuilder is an executable <code>.exe</code> Windows application designed for 64-bit Windows 10 and Windows 11 computers (laptops or desktops). It does not work on Android phones, iPhones, or macOS.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       DEVELOPER'S PROMISE & GUARANTEE
+  ========================================================================= -->
+  <section class="py-12 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+    <div class="glass-card p-8 rounded-2xl border border-purple-500/20 text-center relative overflow-hidden">
+      <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-purple-600 to-cyan-500 mx-auto p-1 mb-4">
+        <div class="w-full h-full bg-[#090A0F] rounded-full flex items-center justify-center font-black text-xl text-purple-300">
+          SNS
+        </div>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-2">Developer's Personal Guarantee</h3>
+      <p class="text-gray-300 text-sm max-w-2xl mx-auto leading-relaxed mb-4">
+        "I am an independent software developer, not a faceless corporation. If you ever run into any issue, bug, or question, do not panic! You can message me directly on WhatsApp at any time with a screenshot. I am 100% committed to AutoVideoBuilder and will personally resolve your issue as quickly as possible."
+      </p>
+      <div class="text-xs text-purple-400 font-bold tracking-wider uppercase">— Syed Naeem Shah (Creator of AutoVideoBuilder)</div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       BOTTOM CALL TO ACTION (CTA)
+  ========================================================================= -->
+  <section class="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto text-center">
+    <div class="p-10 sm:p-16 rounded-3xl bg-gradient-to-b from-purple-900/30 via-indigo-900/20 to-transparent border border-purple-500/30 shadow-2xl relative overflow-hidden">
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-4">
+        Ready to Create Your First Viral Video?
+      </h2>
+      <p class="text-gray-300 text-sm sm:text-base max-w-2xl mx-auto mb-8">
+        Download the software now for Windows and start your 24-hour free trial. No credit card, no waiting.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a data-href="download" class="btn-shimmer px-8 py-4 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold text-base shadow-xl shadow-purple-600/40 transition-all flex items-center gap-3">
+          <i data-lucide="download" class="w-5 h-5"></i>
+          <span>Download AutoVideoBuilder (v<span data-config="version">2.1.0</span>)</span>
+        </a>
+        <a data-href="whatsapp-buy" class="px-8 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-base shadow-xl shadow-emerald-600/30 transition-all flex items-center gap-2">
+          <i data-lucide="message-circle" class="w-5 h-5"></i>
+          <span>Get Lifetime Access (Rs. <span data-config="pricePKR">3,000</span>)</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       FOOTER
+  ========================================================================= -->
+  <footer class="border-t border-white/5 py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-xs text-gray-500 flex flex-col sm:flex-row items-center justify-between gap-6">
+    <div class="flex items-center gap-3">
+      <div class="w-7 h-7 rounded-lg bg-purple-600/30 border border-purple-500/40 flex items-center justify-center text-purple-300">
+        <i data-lucide="video" class="w-4 h-4"></i>
+      </div>
+      <div>
+        <div class="font-bold text-gray-300">AutoVideoBuilder Studio V2</div>
+        <div>Created with passion by <span data-config="developerName">Syed Naeem Shah</span></div>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-6">
+      <a data-href="release-notes" class="hover:text-gray-300 transition-colors">Release Notes</a>
+      <a data-href="whatsapp-support" class="hover:text-emerald-400 transition-colors">WhatsApp Support</a>
+      <a data-href="download" class="hover:text-purple-400 transition-colors">Direct Download</a>
+    </div>
+
+    <div>
+      &copy; <span id="current-year">2026</span> AutoVideoBuilder. All Rights Reserved.
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       FLOATING WHATSAPP BUTTON (BOTTOM RIGHT)
+  ========================================================================= -->
+  <a data-href="whatsapp-buy" class="fixed bottom-6 right-6 z-50 p-3.5 sm:p-4 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white shadow-2xl shadow-emerald-500/50 hover:scale-110 active:scale-95 transition-all flex items-center gap-2 group" title="Chat on WhatsApp">
+    <i data-lucide="message-circle" class="w-6 h-6"></i>
+    <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-300 text-xs font-bold">
+      Chat / Buy License
+    </span>
+  </a>
+
+  <!-- =========================================================================
+       SCRIPTS
+  ========================================================================= -->
+  <!-- 1. Central Configuration (Update links and version in this file) -->
+  <script src="config.js"></script>
+  <!-- 2. Application Logic -->
+  <script src="assets/js/app.js"></script>
+
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+    // Set Current Year
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
